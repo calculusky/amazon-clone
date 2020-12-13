@@ -12,6 +12,7 @@ const HomeScreen = (props) => {
   const productList = useSelector(state => state.productList);
   const { error, loading, products } = productList;
   const dispatch = useDispatch()
+  console.log(productList, '*******')
 
   useEffect(() => {
     dispatch(listProducts());
@@ -40,7 +41,7 @@ const HomeScreen = (props) => {
   }
   else{
     return ( 
-      <div className="row center bg">
+      <div className="row center">
               { products.map(product => {
               return <Products key={product._id} product={product}/>
             }) }                  

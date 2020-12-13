@@ -6,7 +6,8 @@ const initialState = {
     products: []
 }
 
-const productReducer = (state = initialState, action) => {
+//All products
+export const productReducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.PRODUCT_LIST_START:
             return {
@@ -27,8 +28,33 @@ const productReducer = (state = initialState, action) => {
             }           
     
         default:
-            return state
+            return state;
     }
 }
 
-export default productReducer;
+//single product
+export const productDetailsReducer = (state = { loading: true, product: null }, action ) => {
+    switch(action.type){
+        case actionTypes.GET_PRODUCT_START:
+            return {
+                loading: true,
+                product: null
+            }
+        
+        case actionTypes.GET_PRODUCT_SUCCESS:
+            return {
+                loading: false,
+                product: action.payload
+            }
+
+        case actionTypes.GET_PRODUCT_FAILURE:
+            return {
+                loading: false,
+                //product: null,
+                error: action.payload
+            }
+
+        default:
+            return state;
+    }
+} 
