@@ -20,13 +20,13 @@ export const listProducts = () => async (dispatch) => {
     }
 }
 
-export const productDetails = (prodId) => async(dispatch) => {
+export const productDetailsAction = (prodId) => async(dispatch) => {
     dispatch({
         type: actionTypes.GET_PRODUCT_START,
         payload: prodId
     })
     try {
-        const productRes = await Axios.get(`/api/product/${prodId}`);
+        const productRes = await Axios.get(`/api/products/${prodId}`);
         console.log(productRes.data, 'res-data')
         dispatch({
             type: actionTypes.GET_PRODUCT_SUCCESS,
@@ -34,7 +34,7 @@ export const productDetails = (prodId) => async(dispatch) => {
         })
 
     } catch (error) {
-        // console.log(error.message, 'err')
+        console.log(error.message, 'err')
         // console.log(error.response, 'err2222')
         dispatch({
             type: actionTypes.GET_PRODUCT_FAILURE,

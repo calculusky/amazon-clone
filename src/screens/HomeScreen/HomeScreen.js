@@ -16,21 +16,6 @@ const HomeScreen = (props) => {
 
   useEffect(() => {
     dispatch(listProducts());
-
-    // const fetchProducts = async () => {
-    //   try {
-    //     setLoading(true);
-    //     const resData = await axios.get('/api/products');
-    //     setLoading(false);
-    //     setProducts(resData.data);
-
-    //   } catch (error) {
-    //     setLoading(false);
-    //     setError(error.message)
-    //     //console.log(error.message, 'err')
-    //   }
-    // }
-    // fetchProducts();
   }, []);
 
   if(loading){
