@@ -1,16 +1,17 @@
+import { Link } from "react-router-dom";
 import Ratings from "./Ratings/Ratings";
 
 const Products = (props) => {
     const { product } = props;
     return ( 
         <div className="card">
-            <a href={`/products/${product._id}`}>
+            <Link to={`/products/${product._id}`}>
                 <img className="medium" src={product.image} alt="product"/>
-            </a>
+            </Link>
             <div className="card-body">
-                <a href={`/products/${product._id}`}>
+                <Link to={`/products/${product._id}`}>
                     <h1>{product.name}</h1>
-                </a>
+                </Link>
                {<Ratings
                    rating={product.rating}
                    numReviews={product.numReviews}

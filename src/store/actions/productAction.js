@@ -34,7 +34,7 @@ export const productDetailsAction = (prodId) => async(dispatch) => {
         })
 
     } catch (error) {
-        console.log(error.message, 'err')
+        //console.log(error.message, 'err')
         // console.log(error.response, 'err2222')
         dispatch({
             type: actionTypes.GET_PRODUCT_FAILURE,
