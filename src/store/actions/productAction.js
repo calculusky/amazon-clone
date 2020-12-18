@@ -27,7 +27,7 @@ export const productDetailsAction = (prodId) => async(dispatch) => {
     })
     try {
         const productRes = await Axios.get(`/api/products/${prodId}`);
-        console.log(productRes.data, 'res-data')
+       // console.log(productRes.data, 'res-data')
         dispatch({
             type: actionTypes.GET_PRODUCT_SUCCESS,
             payload: productRes.data

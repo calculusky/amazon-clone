@@ -6,17 +6,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { listProducts } from '../../store/actions/productAction';
 
 const HomeScreen = (props) => {
-  // const [ products, setProducts ] = useState([]);
-  // const [ loading, setLoading ] = useState(false);
-  // const [ error, setError ] = useState(false);
   const productList = useSelector(state => state.productList);
   const { error, loading, products } = productList;
   const dispatch = useDispatch()
-  console.log(productList, '*******')
+  //console.log(productList, '*******')
 
   useEffect(() => {
     dispatch(listProducts());
-  }, []);
+  }, [dispatch]);
 
   if(loading){
     return <LoadingBox/>

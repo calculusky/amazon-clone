@@ -1,40 +1,32 @@
+const cartItems = [
+                    {
+                        "name":"Slim Shirt",
+                        "image":"/images/p1.jpg",
+                        "price":60,
+                        "product":"1",
+                        "qty":8
+                    },
 
-const { createStore, combineReducers } = require('redux');
+                    {
+                        "name":"Fit Shirt",
+                        "image":"/images/p1.jpg",
+                        "price":50,
+                        "product":"2",
+                        "qty":1
+                    },
+
+                    {
+                        "name":"Best Pants",
+                        "image":"/images/p1.jpg",
+                        "price":70,
+                        "product":"4",
+                        "qty":2
+                    }
+                ]
 
 
-
-const prodReducer = (state = { name: 'shirt', price: 59 }, action) => {
-    if(action.type === 'UPDATE_PRODUCT'){
-        return action.payload
-    }
-    return state;
-}
-
-
-const personReducer = (state = { name: 'edu', worth: '$500b' }, action) => {
-    return state;
-}
-const reducer = combineReducers({
-    product: prodReducer,
-    person: personReducer
-})
-const store = createStore(reducer)
-
-
-
-
-store.dispatch({
-    type: 'UPDATE_PRODUCT',
-    payload: {
-        name: 'calculus',
-        age: 26,
-        origin: 'Lag'
-    }
-})
-
-const prod = store.getState().product;
-
-console.log(store)
+const red = [ cartItems.reduce((acc, val) => acc + val.qty, 0) ].concat([4, 7]).slice()
+console.log(red)
 
 
 
