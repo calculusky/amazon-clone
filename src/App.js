@@ -6,7 +6,7 @@ import ProductScreen from './screens/ProductScreen/ProductScreen';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
-  const cartBadge = cartItems.length > 0 ? <span className="badge">{cartItems.length}</span> : null;
+  const cartBadge = cartItems.length > 0 ? <span className="badge small-text">{cartItems.length}</span> : null;
   return (
     <BrowserRouter>
        <div className="grid-container">
@@ -15,14 +15,14 @@ function App() {
                     <Link className="brand" to="/">amazona</Link>
                 </div>
                 <div>
-                    <Link to="/cart">Cart{cartBadge}</Link>
+                    <Link to="/cart"><i className="fa fa-shopping-cart large-text"></i>{cartBadge}</Link>
                     <Link to="/signin">Sign In</Link>
                 </div>
             </header>
             <main>
               <Route path='/' exact component={HomeScreen} />
               <Route path='/products/:id' component={ProductScreen}/>
-              <Route path='/cart' component={CartScreen}/>
+              <Route path='/cart/:id?' component={CartScreen}/>
             </main>
             <footer className="row center">
                 All right reserved

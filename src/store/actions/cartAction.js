@@ -12,7 +12,8 @@ export const addToCartAction = (productId, qty) => async (dispatch, getState) =>
                 name: data.name,
                 image: data.image,
                 price: data.price,
-                product: productId,
+                product: data._id,
+                countInStock: data.countInStock,
                 qty
             }
         })
@@ -26,4 +27,12 @@ export const addToCartAction = (productId, qty) => async (dispatch, getState) =>
             payload: error.response.data.message ? error.response.data.message : error.response.statusText
         })
     }
+}
+
+export const removeFromCartAction = (prodId) => (dispatch, getState) => {
+    dispatch({
+        type: actionTypes.CART_REMOVE_ITEM,
+        payload: prodId
+    })
+    localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems)) //save cart items in loacal storage
 }

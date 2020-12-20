@@ -9,6 +9,9 @@ export const GET_PRODUCT_START = 'PRODUCT_START';
 export const GET_PRODUCT_SUCCESS = 'PRODUCT_SUCCESS';
 export const GET_PRODUCT_FAILURE = 'GET_PRODUCT_FAILURE';
 
-//cart
+//cart add
 export const CART_ADD_ITEM = 'CART_ADD_ITEM';
 export const CART_ADD_ITEM_FAILURE = 'CART_ADD_ITEM_FAILURE'
+//remove
+export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM';
+

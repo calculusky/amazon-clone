@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { productDetailsAction } from '../../store/actions/productAction';
 import LoadingBox from '../../components/LoadingBox/LoadingBox';
 import MessageBox from '../../components/MessageBox/MessageBox';
+import { addToCartAction } from '../../store/actions/cartAction';
 
 
 const ProductScreen = (props) => { 
@@ -12,16 +13,21 @@ const ProductScreen = (props) => {
         return state.productDetailsReducer
     });
 
+    //console.log(productDetails, 'details')
     //set states
     const { loading, error, product } = productDetails;
     const [qty, setQty] = useState(1)
 
+    const prodId = props.match.params.id;
+
     //
     const dispatch = useDispatch();
-    const prodId = props.match.params.id;
 
     //add to cart handler
     const addToCartHandler = () => {
+        //console.log(prodId)
+        //dispatch(addToCartAction(prodId, parseInt(qty)))
+        //props.history.push(`/cart`)
         props.history.push(`/cart/${prodId}?qty=${qty}`)
     }
   

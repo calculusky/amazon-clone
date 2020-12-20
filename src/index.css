@@ -44,6 +44,12 @@ h2 {
   padding: 1rem 0;
   font-size: 1.6rem;
 }
+.large-text {
+  font-size: 2.5rem;
+}
+.small-text {
+  font-size: 1.1rem;
+}
 a{
   text-decoration: none;
 }
@@ -102,8 +108,10 @@ a.brand{
   color: #fff;
   background-color: #ff2020;
   border-radius: 50%;
-  margin-left: 0.3rem;
-  padding: 0.2rem 0.7rem;
+  margin-left: -0.3rem;
+  padding: 0.2rem 0.5rem;
+ 
+  
 }
 
 .row{
@@ -124,9 +132,16 @@ a.brand{
 .col-2{
   flex: 2 1 50rem;
 }
+.min-30 {
+  width: 30rem;
+}
 /* images */
 img{
   border-radius: 0.5rem;
+}
+img.small {
+  max-width: 5rem;
+  width: 100%;
 }
 img.medium {
   max-width: 29rem;
