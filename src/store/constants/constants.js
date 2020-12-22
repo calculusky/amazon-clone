@@ -15,3 +15,9 @@ export const CART_ADD_ITEM_FAILURE = 'CART_ADD_ITEM_FAILURE'
 //remove
 export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM';
 
+//signin and signout
+export const SIGNIN_START = 'SIGNIN_START';
+export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
+export const SIGNIN_FAILURE = 'SIGNIN_FAILURE';
+export const SIGNOUT = 'SIGNOUT';
+

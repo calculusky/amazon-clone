@@ -3,6 +3,7 @@ import { BrowserRouter, Link, Route } from 'react-router-dom'
 import CartScreen from './screens/CartScreen/CartScreen';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import ProductScreen from './screens/ProductScreen/ProductScreen';
+import SigninScreen from './screens/SigninScreen/SigninScreen';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
@@ -22,7 +23,8 @@ function App() {
             <main>
               <Route path='/' exact component={HomeScreen} />
               <Route path='/products/:id' component={ProductScreen}/>
-              <Route path='/cart/:id?' component={CartScreen}/>
+              <Route path='/signin' component={SigninScreen}/>
+              <Route path='/cart' component={CartScreen}/>
             </main>
             <footer className="row center">
                 All right reserved

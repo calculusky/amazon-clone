@@ -1,1 +1,54 @@
 [1217/124311.672:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1221/095353.620:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1221/163221.605:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1221/163221.599:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1221/163221.601:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1221/163221.602:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1221/163221.604:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1221/163221.599:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[1221/163221.849:ERROR:exception_snapshot_win.cc(99)] thread ID 18352 not found in process
+[1221/163221.849:ERROR:exception_snapshot_win.cc(99)] thread ID 13060 not found in process
+[1221/163221.849:ERROR:exception_snapshot_win.cc(99)] thread ID 18912 not found in process
+[1221/163221.849:ERROR:exception_snapshot_win.cc(99)] thread ID 13076 not found in process
+[1221/163221.849:ERROR:exception_snapshot_win.cc(99)] thread ID 12380 not found in process
+[1221/163221.849:ERROR:exception_snapshot_win.cc(99)] thread ID 4140 not found in process
+[1221/163221.849:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1221/163221.849:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1221/163221.849:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1221/163221.850:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1221/163221.849:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1221/163221.849:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1222/094819.627:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/095819.683:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/095819.697:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\063f6149-6854-4e6d-a67d-944146a1b374: The system cannot find the path specified. (0x3)
+[1222/095819.701:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\09522506-0ba0-442d-aa47-2fd904642e14: The system cannot find the path specified. (0x3)
+[1222/095819.709:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0a0892a7-1689-417d-b400-5e4ab47447f9: The system cannot find the path specified. (0x3)
+[1222/095819.729:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\0ae71734-f56c-421a-85f1-cfab5221172e: The system cannot find the path specified. (0x3)
+[1222/095819.765:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\186dc875-66ed-498e-99fc-c28411d0cee6: The system cannot find the path specified. (0x3)
+[1222/095819.779:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\388d7c01-440e-48b9-b3d8-53e0ba306e07: The system cannot find the path specified. (0x3)
+[1222/095819.784:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\4078bfa9-bed0-460d-bd30-3eccd1bc16a4: The system cannot find the path specified. (0x3)
+[1222/095819.787:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\41945a67-a1e0-4b07-837d-228fad6bcdab: The system cannot find the path specified. (0x3)
+[1222/095819.798:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\44a3ae14-3379-4c79-a8bb-b9f0ca96fb51: The system cannot find the path specified. (0x3)
+[1222/095819.824:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\5a7d0471-39b9-4c11-b57f-a3b588468f6d: The system cannot find the path specified. (0x3)
+[1222/095819.845:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\7897677e-6b4c-4219-aa0b-d78a11c59134: The system cannot find the path specified. (0x3)
+[1222/095819.867:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\83342171-7766-4245-8473-72aaa1eb4ad6: The system cannot find the path specified. (0x3)
+[1222/095819.873:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\93eb901a-6f7f-4a4f-91fd-f9688e7cef51: The system cannot find the path specified. (0x3)
+[1222/095819.886:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\d053d352-fbd5-472c-94a4-58d2680bde67: The system cannot find the path specified. (0x3)
+[1222/095819.888:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1222/095819.889:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/095819.891:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/100319.646:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/101819.648:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/103319.649:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/104819.651:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/110319.689:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/111819.710:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/113319.768:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/114819.794:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/120319.798:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/121819.799:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/123319.856:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/124819.858:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/130319.860:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/131819.862:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1222/132729.813:ERROR:crash_report_database_win.cc(455)] unexpected header

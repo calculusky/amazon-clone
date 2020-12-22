@@ -9,26 +9,22 @@ import { addToCartAction } from '../../store/actions/cartAction';
 
 
 const ProductScreen = (props) => { 
+    const prodId = props.match.params.id;
+    // 
+    const dispatch = useDispatch();
     const productDetails = useSelector(state => {
         return state.productDetailsReducer
     });
-
-    //console.log(productDetails, 'details')
-    //set states
+    //set state
     const { loading, error, product } = productDetails;
     const [qty, setQty] = useState(1)
 
-    const prodId = props.match.params.id;
-
-    //
-    const dispatch = useDispatch();
-
+     
     //add to cart handler
     const addToCartHandler = () => {
-        //console.log(prodId)
-        //dispatch(addToCartAction(prodId, parseInt(qty)))
-        //props.history.push(`/cart`)
-        props.history.push(`/cart/${prodId}?qty=${qty}`)
+        dispatch(addToCartAction(product._id, parseInt(qty)))
+        props.history.push(`/cart`)
+        //props.history.push(`/cart/${prodId}?qty=${qty}`)
     }
   
     useEffect(() => {
@@ -98,7 +94,7 @@ const ProductScreen = (props) => {
                                             </div>
                                         </li>
                                         <li>
-                                            <button className="primary block" onClick={addToCartHandler}>Add to Cart</button>
+                                            <button className="primary block" onClick={() => addToCartHandler()}>Add to Cart</button>
                                         </li>
                                    </div>
                                 )

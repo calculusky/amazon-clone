@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+//import { useEffect } from "react";
 import { connect } from 'react-redux';
 import { addToCartAction, removeFromCartAction } from '../../store/actions/cartAction';
 import MessageBox from "../../components/MessageBox/MessageBox";
@@ -6,19 +6,17 @@ import { Link } from "react-router-dom";
 //import { useDispatch, useSelector } from "react-redux";
 
 const CartScreen = (props) => {
-     const productId = props.match.params.id;
-     const qty = parseInt(props.location.search.split('=')[1]) || 1;
-     const { onAddToCart, onRemoveFromCart } = props;
+    //  const productId = props.match.params.id;
+    //  const qty = parseInt(props.location.search.split('=')[1]) || 1;
+    const { onAddToCart, onRemoveFromCart } = props;
     const { cartItems } = props.cart;
-    // const dispatch = useDispatch();
-    // const { cartItems } = useSelector(state => state.cartReducer)
 
     console.log(cartItems, 'cartitems------')
 
-    useEffect(() => {
-        //dispatch(addToCartAction(productId, qty))
-        onAddToCart(productId, qty);        
-    }, [onAddToCart, productId, qty]) //disp--------
+    // useEffect(() => {
+    //     //dispatch(addToCartAction(productId, qty))
+    //     onAddToCart(productId, qty);        
+    // }, [onAddToCart, productId, qty]) //disp--------
 
     //add to cart
     const addToCartHandler = (productId, qty) => {
@@ -32,8 +30,14 @@ const CartScreen = (props) => {
         //dispatch(removeFromCartAction(productId))      
     }
 
+    //redirect to signin
+    const checkoutHandler = () => {
+        props.history.push('/signin?redirect=shipping')
+    }
+
     return ( 
-         <div className="row top">          
+         <div className="row top">
+             {/* <h3>Shopping Cart</h3>           */}
                 {cartItems.length < 1 ? (
                     <MessageBox>
                        Cart is empty! <Link to="/">Go shopping</Link>
@@ -76,7 +80,7 @@ const CartScreen = (props) => {
                                     <h2>Subtotal ({cartItems.reduce((acc, val) => acc + val.qty, 0)} items) : ${cartItems.reduce((acc, val) => acc + (val.qty * val.price), 0)}</h2>
                                 </li>
                                 <li>
-                                    <button className="primary block" disabled={cartItems.length === 0}>Proceed to Checkout</button>
+                                    <button className="primary block" onClick={checkoutHandler} disabled={cartItems.length === 0}>Proceed to Checkout</button>
                                 </li>
                             </ul>
                         </div>

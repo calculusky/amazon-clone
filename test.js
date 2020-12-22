@@ -28,6 +28,9 @@ const cartItems = [
 const red = [ cartItems.reduce((acc, val) => acc + val.qty, 0) ].concat([4, 7]).slice()
 console.log(red)
 
+"mongodb://localhost:27017"
+"https://amazonback.herokuapp.com"
+
 
 
 
