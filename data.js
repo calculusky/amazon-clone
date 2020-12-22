@@ -1,7 +1,24 @@
+const bcrypt = require('bcryptjs');
+
 const data = {
+
+    users: [
+      {
+        name: 'Chinedum',
+        email: 'admin@gmail.com',
+        isAdmin: true,
+        password: bcrypt.hashSync('aaa1', 12)
+      },
+      {
+        name: 'John',
+        email: 'john@gmail.com',
+        isAdmin: false,
+        password: bcrypt.hashSync('1234', 12)
+      }
+    ],
+   
     products: [
       {
-        _id: '1',
         name: 'Slim Shirt',
         category: 'Shirts',
         image: '/images/p1.jpg',
@@ -13,7 +30,6 @@ const data = {
         description: 'A very nice slim shirt for body fitting'
       },
       {
-        _id: '2',
         name: 'Fit Shirt',
         category: 'Shirts',
         image: '/images/p1.jpg',
@@ -25,10 +41,9 @@ const data = {
         description: 'Great shirt with fittings'
       },
       {
-        _id: '3',
         name: 'Best Pants',
         category: 'Pants',
-        image: '/images/p2.png',
+        image: '/images/p1.jpg',
         price: 70,
         brand: ' Nike',
         rating: 4.5,
@@ -37,8 +52,7 @@ const data = {
         description: 'Wonderful pants with design'
       },
        {
-        _id: '4',
-        name: 'Best Pants',
+        name: 'Nike Shirts',
         category: 'Pants',
         image: '/images/p1.jpg',
         price: 70,

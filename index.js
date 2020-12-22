@@ -7,7 +7,7 @@ const app = require('./app');
 const server = http.createServer(app);
 
 mongoose
-   .connect(config.mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true})
+   .connect(config.mongoDBUrl, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true})
    .then(connected => {
       return server.listen(config.port);
    })
