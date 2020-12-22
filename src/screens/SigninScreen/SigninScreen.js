@@ -7,15 +7,19 @@ const SigninScreen = (props) => {
     const [email, setEmai] = useState('');
     const [password, setPassword] = useState('');
 
+    //
+    const { userInfo, error } = props.user;
+
     const submitHandler = (e) => {
         e.preventDefault();
+        props.onSignIn(email, password)
     }
 
     return (
         <div>
             <form className="form" onSubmit={submitHandler}>
                 <div>
-                    <h1>Signin</h1>
+                    <h1>Sign In</h1>
                 </div>
                 <div>
                     <label htmlFor="email">Email Address</label>
@@ -52,7 +56,7 @@ const SigninScreen = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        userInfo: state.signInReducer
+        user: state.signInReducer
     }
 }
 
