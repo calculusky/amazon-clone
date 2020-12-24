@@ -9,6 +9,7 @@ const SigninScreen = (props) => {
 
     //
     const { userInfo, error } = props.user;
+    console.log(props.user)
 
     const submitHandler = (e) => {
         e.preventDefault();
