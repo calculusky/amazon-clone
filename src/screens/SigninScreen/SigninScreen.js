@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signInAction } from '../../store/actions/authAction';
 
 const SigninScreen = (props) => {
-    const [email, setEmai] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     //
-    const { userInfo, error } = props.user;
-    console.log(props.user)
+    const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
+    const { userInfo, error, loading } = props.user;
+    console.log(props.user, 'state')
+
+
+    useEffect(() => {
+        console.log('useEffect...')
+        if(userInfo){
+            props.history.push(redirect)
+        }
+    }, [userInfo, redirect])
 
     const submitHandler = (e) => {
         e.preventDefault();
@@ -28,7 +37,7 @@ const SigninScreen = (props) => {
                        type="email" 
                        id="email" 
                        placeholder="Enter email"
-                       onChange={(e) => setEmai(e.target.value)}> 
+                       onChange={(e) => setEmail(e.target.value)}> 
                     </input>
                 </div>
                 <div>

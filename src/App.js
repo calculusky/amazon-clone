@@ -8,6 +8,9 @@ import SigninScreen from './screens/SigninScreen/SigninScreen';
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
   const cartBadge = cartItems.length > 0 ? <span className="badge small-text">{cartItems.length}</span> : null;
+  const user = useSelector(state => state.signInReducer)
+  const { userInfo }  = user;
+  console.log(userInfo, 'ussr')
   return (
     <BrowserRouter>
        <div className="grid-container">
@@ -17,7 +20,14 @@ function App() {
                 </div>
                 <div>
                     <Link to="/cart"><i className="fa fa-shopping-cart large-text"></i>{cartBadge}</Link>
-                    <Link to="/signin">Sign In</Link>
+                    { 
+                       userInfo ? ( 
+                         <Link to="#">{ userInfo.name }</Link>
+                        )
+                      : (
+                        <Link to="/signin">Sign In</Link>
+                      ) 
+                    }
                 </div>
             </header>
             <main>
