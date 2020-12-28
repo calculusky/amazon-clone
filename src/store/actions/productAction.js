@@ -1,12 +1,13 @@
 import * as actionTypes from '../constants/constants';
 import Axios from 'axios';
+import { proxyServer } from '../../config';
 
 export const listProducts = () => async (dispatch) => {
     dispatch({
         type: actionTypes.PRODUCT_LIST_START
     })
     try {
-        const productsRes = await Axios.get('/api/products');
+        const productsRes = await Axios.get(`${proxyServer}/api/products`);
         dispatch({
             type: actionTypes.PRODUCT_LIST_SUCCESS,
             payload: productsRes.data
@@ -26,7 +27,7 @@ export const productDetailsAction = (prodId) => async(dispatch) => {
         payload: prodId
     })
     try {
-        const productRes = await Axios.get(`/api/products/${prodId}`);
+        const productRes = await Axios.get(`${proxyServer}/api/products/${prodId}`);
        // console.log(productRes.data, 'res-data')
         dispatch({
             type: actionTypes.GET_PRODUCT_SUCCESS,

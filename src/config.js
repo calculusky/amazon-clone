@@ -1,0 +1,1 @@
+export const proxyServer = 'https://amazonback.herokuapp.com' || 'http://localhost:8080';

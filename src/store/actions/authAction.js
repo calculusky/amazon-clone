@@ -1,3 +1,4 @@
+import { proxyServer } from '../../config'
 import Axios from 'axios';
 import * as actionTypes from '../constants/constants';
 
@@ -10,7 +11,7 @@ export const signInAction = (email, password) => async (dispatch) => {
         }
     });
     try {
-        const { data } = await Axios.post('/api/auth/signin', { email: email, password: password });
+        const { data } = await Axios.post(`${proxyServer}/api/auth/signin`, { email: email, password: password });
         console.log(data, 'data')
         dispatch({
             type: actionTypes.SIGNIN_SUCCESS,
@@ -41,7 +42,7 @@ export const signUpAction = (name, email, password) => async (dispatch) => {
         payload: { name, email, password }
     });
     try {
-        const { data } = await Axios.post('/api/auth/signup', { name: name, email: email, password: password});
+        const { data } = await Axios.post(`${proxyServer}/api/auth/signup`, { name: name, email: email, password: password});
         dispatch({
             type: actionTypes.SIGNUP_SUCCESS,
             payload: data

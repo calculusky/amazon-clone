@@ -1,11 +1,13 @@
+import { proxyServer } from '../../config'
 import * as actionTypes from '../constants/constants'
 import Axios from 'axios';
 
 export const addToCartAction = (productId, qty) => async (dispatch, getState) => {
 
+
     //console.log(getState().cartReducer.cartItems, '--------cart__-----')
     try {
-        const { data } = await Axios.get(`/api/products/${productId}`);
+        const { data } = await Axios.get(`${proxyServer}/api/products/${productId}`);
         dispatch({
             type: actionTypes.CART_ADD_ITEM,
             payload: {
