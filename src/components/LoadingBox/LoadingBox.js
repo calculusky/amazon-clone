@@ -3,7 +3,7 @@ import './LoadingBox.css';
 
 const LoadingBox = (props) => {
     return ( 
-        <div className="row center bg">
+        <div className="row center">
             <div className="spin">
                <span><i className="fa fa-spinner fa-spin"></i>Loading...</span>
             </div>

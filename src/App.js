@@ -1,16 +1,27 @@
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import CartScreen from './screens/CartScreen/CartScreen';
 import HomeScreen from './screens/HomeScreen/HomeScreen';
 import ProductScreen from './screens/ProductScreen/ProductScreen';
 import SigninScreen from './screens/SigninScreen/SigninScreen';
+import { signOutActon } from './store/actions/authAction';
+import SignupScreen from './screens/SignupScreen/SignupScreen';
+import ShippingScreen from './screens/ShippingScreen/ShippingScreen';
+import PaymentScreen from './screens/PaymentScreen/PaymentScreen';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
   const cartBadge = cartItems.length > 0 ? <span className="badge small-text">{cartItems.length}</span> : null;
+  const dispatch = useDispatch();
   const user = useSelector(state => state.signInReducer)
   const { userInfo }  = user;
   console.log(userInfo, 'ussr')
+
+  const signOutHandler = () => {
+    dispatch(signOutActon())
+  }
+
   return (
     <BrowserRouter>
        <div className="grid-container">
@@ -22,7 +33,12 @@ function App() {
                     <Link to="/cart"><i className="fa fa-shopping-cart large-text"></i>{cartBadge}</Link>
                     { 
                        userInfo ? ( 
-                         <Link to="#">{ userInfo.name }</Link>
+                         <div className="dropdown">
+                            <Link to="#">{ userInfo.name } <i className="fa fa-caret-down"></i></Link>
+                            <ul className="dropdown-content">
+                               <Link to="#" onClick={signOutHandler}><i className="fa fa-sign-out"></i> sign out</Link>
+                            </ul>
+                         </div>
                         )
                       : (
                         <Link to="/signin">Sign In</Link>
@@ -34,7 +50,10 @@ function App() {
               <Route path='/' exact component={HomeScreen} />
               <Route path='/products/:id' component={ProductScreen}/>
               <Route path='/signin' component={SigninScreen}/>
+              <Route path='/signup' component={SignupScreen}/>
               <Route path='/cart' component={CartScreen}/>
+              <Route path='/shipping' component={ShippingScreen}/>
+              <Route path='/payment' component={PaymentScreen}/>
             </main>
             <footer className="row center">
                 All right reserved

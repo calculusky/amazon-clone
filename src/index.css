@@ -177,6 +177,9 @@ img.large {
   margin-left: 1rem;
   color: #404040;
 }
+/* .loading {
+  display: block;
+} */
 .success {
   color: #20a020;
 }
@@ -210,4 +213,37 @@ img.large {
 .form label {
   margin: 1rem 0;
   display: block;
+}
+
+/* dropdown */
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  width: 13rem;
+  background-color: #a02020;   /* #203040; */
+  margin: 0;
+  margin-top: 1rem;
+  padding: 1rem;
+  border-radius: 0.1rem;
+  z-index: 1;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* checkout */
+.checkout-steps > div {
+  border-top: 0.3rem #c0c0c0 solid;
+  color: #c0c0c0;
+  flex: 1;
+  padding: 1rem;
+}
+.checkout-steps > div.active {
+  border-top-color: #f08000 ;
+  color: #f08000;
 }

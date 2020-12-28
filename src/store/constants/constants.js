@@ -12,6 +12,8 @@ export const GET_PRODUCT_FAILURE = 'GET_PRODUCT_FAILURE';
 //cart add
 export const CART_ADD_ITEM = 'CART_ADD_ITEM';
 export const CART_ADD_ITEM_FAILURE = 'CART_ADD_ITEM_FAILURE'
+export const CART_SAVE_SHIPPING_ADDRESS = 'CART_SAVE_SHIPPING_ADDRESS';
+
 //remove
 export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM';
 
@@ -20,4 +22,9 @@ export const SIGNIN_START = 'SIGNIN_START';
 export const SIGNIN_SUCCESS = 'SIGNIN_SUCCESS';
 export const SIGNIN_FAILURE = 'SIGNIN_FAILURE';
 export const SIGNOUT = 'SIGNOUT';
+
+//signup
+export const SIGNUP_START = 'SIGNUP_START';
+export const SIGNUP_SUCCESS = 'SIGNUP_SUCCESS';
+export const SIGNUP_FAILURE = 'SIGNUP_FAILURE';
 

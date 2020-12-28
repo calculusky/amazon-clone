@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signInAction } from '../../store/actions/authAction';
+import { signUpAction } from '../../store/actions/authAction';
 import LoadingBox from '../../components/LoadingBox/LoadingBox';
 import MessageBox from '../../components/MessageBox/MessageBox';
 
-const SigninScreen = (props) => {
+const SignupScreen = (props) => {
+    const [name, setName] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
 
     //
     const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
-    const { userInfo, error, loading } = props.user;
-    console.log(props.user, 'state-signin')
+    const { userInfo } = props.userSignin;
+    const { loading, error } = props.userSignup
+    console.log(props.userSignup, 'state-signup')
 
 //renders comp b4 redirecting***bug
     useEffect(() => {
@@ -21,21 +24,33 @@ const SigninScreen = (props) => {
         }
     }, [userInfo, redirect])
 
-   
+    //submit form
     const submitHandler = (e) => {
         e.preventDefault();
-        props.onSignIn(email, password)
+        if(password !== confirmPassword){
+           return alert('password do not match')
+        }
+        props.onSignUp(name, email, password);
     }
 
     return (
         <div>
             <form className="form" onSubmit={submitHandler}>
                 <div>
-                    <h1>Sign In</h1>
+                    <h1>Sign up</h1>
                 </div>
                 <div>
                     { loading && <LoadingBox/> }
                     { error && <MessageBox variant={'danger'}>{error}</MessageBox>}
+                </div>
+                <div>
+                    <label htmlFor="name">Name</label>
+                    <input 
+                       type="text" 
+                       id="name" 
+                       placeholder="Enter name"
+                       onChange={(e) => setName(e.target.value)}> 
+                    </input>
                 </div>
                 <div>
                     <label htmlFor="email">Email Address</label>
@@ -56,13 +71,22 @@ const SigninScreen = (props) => {
                     </input>
                 </div>
                 <div>
+                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <input 
+                       type="password" 
+                       placeholder="re-enter password" 
+                       id="confirmPassword"
+                       onChange={(e) => setConfirmPassword(e.target.value)}>
+                    </input>
+                </div>
+                <div>
                     <label/>
-                    <button className="primary block">Signin</button>
+                    <button className="primary block" type="submit">Sign Up</button>
                 </div>
                 <div>
                     <label/>
                     <div>
-                       Have no account? <Link to={redirect === 'shipping' ? '/signup?redirect=shipping' : '/signup'}>Create new account</Link>
+                       Already have an account? <Link to={redirect === 'shipping' ? '/signin?redirect=shipping' : '/signin'}>Sign In</Link>
                     </div>
                 </div>
             </form>
@@ -72,14 +96,15 @@ const SigninScreen = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        user: state.signInReducer
+        userSignin: state.signInReducer,
+        userSignup: state.signUpReducer
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        onSignIn: (email, password) => dispatch(signInAction(email, password))
+        onSignUp: (name, email, password) => dispatch(signUpAction(name, email, password))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SigninScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(SignupScreen);
