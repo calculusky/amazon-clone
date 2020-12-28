@@ -28,6 +28,33 @@ exports.signin = async (req, res, next) => {
     }
 }
 
+exports.signup = async (req, res, next) => {
+    const { name, email, password } = req.body;
+    try {
+        const user = await User.findOne({ email: email});
+        if(user){
+            throwError({ message: 'Account already exists', status: 422 })
+        }
+        const harshedPassword = await bcrypt.hash(password, 12);
+        const newUser = new User({
+            name: name,
+            email: email,
+            password: harshedPassword,
+        });
+        const createdUser = await newUser.save();
+        const data = {
+            name: createdUser.name,
+            email: createdUser.email,
+            isAdmin: createdUser.isAdmin,
+            token: generateToken(createdUser)
+        }      
+        return res.json(data);
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 
 
