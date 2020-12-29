@@ -20,10 +20,10 @@ export const signInAction = (email, password) => async (dispatch) => {
         localStorage.setItem('userInfo', JSON.stringify(data));
 
     } catch (error) {
-        //console.log(error.response, 'eee')
+        console.log(error, 'eee')
         dispatch({
             type: actionTypes.SIGNIN_FAILURE,
-            payload: error.response.data.message ? error.response.data.message : error.response.statusText
+            payload: (error.response && error.response.data.message) ? error.response.data.message : error.message
         });
     }
 }
@@ -57,7 +57,7 @@ export const signUpAction = (name, email, password) => async (dispatch) => {
         console.log(error, '---err')
         dispatch({
             type: actionTypes.SIGNUP_FAILURE,
-            payload: error.response.data.message ? error.response.data.message : error.response.statusText
+            payload:  (error.response && error.response.data.message) ? error.response.data.message : error.message
         });
     }
 }
