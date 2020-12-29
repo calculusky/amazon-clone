@@ -34,7 +34,7 @@ const SigninScreen = (props) => {
                     <h1>Sign In</h1>
                 </div>
                 <div>
-                    { loading && <LoadingBox/> }
+                   
                     { error && <MessageBox variant={'danger'}>{error}</MessageBox>}
                 </div>
                 <div>
@@ -57,7 +57,7 @@ const SigninScreen = (props) => {
                 </div>
                 <div>
                     <label/>
-                    <button className="primary block">Signin</button>
+                    <button className="primary block" disabled={loading}>{ loading ? <LoadingBox value={'Signin'}/> : 'Signing' }</button>
                 </div>
                 <div>
                     <label/>

@@ -3,8 +3,6 @@ import * as actionTypes from '../constants/constants'
 import Axios from 'axios';
 
 export const addToCartAction = (productId, qty) => async (dispatch, getState) => {
-
-
     //console.log(getState().cartReducer.cartItems, '--------cart__-----')
     try {
         const { data } = await Axios.get(`${proxyServer}/api/products/${productId}`);
@@ -39,10 +37,19 @@ export const removeFromCartAction = (prodId) => (dispatch, getState) => {
     localStorage.setItem('cartItems', JSON.stringify(getState().cartReducer.cartItems)) //save cart items in loacal storage
 }
 
-export const saveShippingAddressAction = (shippingInfo) => (dispatch) => {
+//save shipping info
+export const saveShippingInfoAction = (shippingInfo) => (dispatch) => {
     dispatch({
-        type: actionTypes.CART_SAVE_SHIPPING_ADDRESS,
+        type: actionTypes.CART_SAVE_SHIPPING_INFO,
         payload: shippingInfo
     });
     localStorage.setItem('shippingInfo', JSON.stringify(shippingInfo))
+}
+
+//select payment method
+export const paymentMethodAction = (paymentMethod) => (dispatch) => {
+    dispatch({
+        type: actionTypes.CART_SAVE_PAYMENT_METHOD,
+        payload: paymentMethod
+    })
 }

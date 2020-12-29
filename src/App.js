@@ -8,7 +8,8 @@ import SigninScreen from './screens/SigninScreen/SigninScreen';
 import { signOutActon } from './store/actions/authAction';
 import SignupScreen from './screens/SignupScreen/SignupScreen';
 import ShippingScreen from './screens/ShippingScreen/ShippingScreen';
-import PaymentScreen from './screens/PaymentScreen/PaymentScreen';
+import PaymentMethodScreen from './screens/PaymentMethodScreen/PaymentMethodScreen';
+import PlaceOrderScreen from './screens/PlaceOrderScreen/PlaceOrderScreen';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
@@ -16,7 +17,7 @@ function App() {
   const dispatch = useDispatch();
   const user = useSelector(state => state.signInReducer)
   const { userInfo }  = user;
-  console.log(userInfo, 'ussr')
+  //console.log(userInfo, 'user login info')
 
   const signOutHandler = () => {
     dispatch(signOutActon())
@@ -53,7 +54,8 @@ function App() {
               <Route path='/signup' component={SignupScreen}/>
               <Route path='/cart' component={CartScreen}/>
               <Route path='/shipping' component={ShippingScreen}/>
-              <Route path='/payment' component={PaymentScreen}/>
+              <Route path='/payment' component={PaymentMethodScreen}/>
+              <Route path='/placeorder' component={PlaceOrderScreen}/>
             </main>
             <footer className="row center">
                 All right reserved

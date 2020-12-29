@@ -5,7 +5,7 @@ const LoadingBox = (props) => {
     return ( 
         <div className="row center">
             <div className="spin">
-               <span><i className="fa fa-spinner fa-spin"></i>Loading...</span>
+               <span><i className="fa fa-spinner fa-spin"></i>{ props.value ? props.value : 'loading'}...</span>
             </div>
         </div>
      );

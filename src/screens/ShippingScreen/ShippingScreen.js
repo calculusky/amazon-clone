@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import CheckoutSteps from '../../components/CheckoutSteps/CheckoutSteps';
 import { connect } from 'react-redux';
-import { saveShippingAddressAction } from '../../store/actions/cartAction';
+import { saveShippingInfoAction } from '../../store/actions/cartAction';
 
 const ShippingScreen = (props) => {
     const { userInfo } = props.user;
-    const { shippingInfo } = props.cart;
+    const { cartItems, shippingInfo } = props.cart;
 
     const [ fullname, setFullname ] = useState(shippingInfo.fullname);
     const [ address, setAddress ] = useState(shippingInfo.address);
@@ -20,11 +20,14 @@ const ShippingScreen = (props) => {
         if(!userInfo){
             props.history.push('/signin')
         }
-    }, [userInfo])
+        if(cartItems.length === 0){
+            props.history.push('/cart')
+        }
+    }, [userInfo, cartItems, props.history])
 
     const submitHandler = (e) => {
         e.preventDefault();
-        props.onSaveShippingAddress({ fullname, address, postalCode, city, country });
+        props.onSaveShippingInfo({ fullname, address, postalCode, city, country });
         props.history.push('/payment');
     }
 
@@ -103,7 +106,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = dispatch => {
     return {
-        onSaveShippingAddress: shippingInfo => dispatch(saveShippingAddressAction(shippingInfo))
+        onSaveShippingInfo: shippingInfo => dispatch(saveShippingInfoAction(shippingInfo))
     }
 }
  

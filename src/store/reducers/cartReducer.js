@@ -4,7 +4,8 @@ import * as actionTypes from '../constants/constants';
 
 const initialState = {
     cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
-    shippingInfo: localStorage.getItem('shippingInfo') ? JSON.parse(localStorage.getItem('shippingInfo')) : {}
+    shippingInfo: localStorage.getItem('shippingInfo') ? JSON.parse(localStorage.getItem('shippingInfo')) : {},
+    paymentMethod: 'Paypal'
 }
 
 export const cartReducer = (state = initialState, action) => {
@@ -29,10 +30,15 @@ export const cartReducer = (state = initialState, action) => {
                 ...state,
                 cartItems: [...state.cartItems].filter(item => item.product !== productId)
             }
-        case actionTypes.CART_SAVE_SHIPPING_ADDRESS:
+        case actionTypes.CART_SAVE_SHIPPING_INFO:
             return {
                 ...state,
                 shippingInfo: action.payload
+            }
+        case actionTypes.CART_SAVE_PAYMENT_METHOD:
+            return {
+                ...state,
+                paymentMethod: action.payload
             }
         default:
             return state;
