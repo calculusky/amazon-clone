@@ -22,7 +22,7 @@ const SignupScreen = (props) => {
         if(userInfo){
             props.history.push(redirect)
         }
-    }, [userInfo, redirect])
+    }, [userInfo, redirect, props.history])
 
     //submit form
     const submitHandler = (e) => {

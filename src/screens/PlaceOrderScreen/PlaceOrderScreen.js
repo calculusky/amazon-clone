@@ -44,7 +44,7 @@ const PlaceOrderScreen = (props) => {
                                                         <img className="small" src={item.image} alt={item.name}/>
                                                     </div>
                                                     <div>
-                                                        <Link to={`/products/${item._id}`}>{item.name}</Link>
+                                                        <Link to={`/products/${item.product}`}>{item.name}</Link>
                                                     </div>
                                                     <div>
                                                         <p>{item.qty} x ${item.price} = ${item.qty * item.price}</p>

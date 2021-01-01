@@ -19,7 +19,7 @@ const SigninScreen = (props) => {
         if(userInfo){
             props.history.push(redirect)
         }
-    }, [userInfo, redirect])
+    }, [userInfo, redirect, props.history])
 
    
     const submitHandler = (e) => {
