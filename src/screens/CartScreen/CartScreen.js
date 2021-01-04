@@ -47,16 +47,16 @@ const CartScreen = (props) => {
                         <ul>
                             {cartItems.map(item => {
                                 return (
-                                    <li key={item.product}>
+                                    <li key={item.productId}>
                                         <div className="row">
                                             <div>
                                                 <img className="small" alt={item.name} src={item.image}/>
                                             </div>
                                             <div className="min-30">
-                                                <Link to={`/products/${item.product}`}>{item.name}</Link>
+                                                <Link to={`/products/${item.productId}`}>{item.name}</Link>
                                             </div>
                                             <div>
-                                                <select value={item.qty} onChange={(e) => addToCartHandler(item.product, e.target.value) }>
+                                                <select value={item.qty} onChange={(e) => addToCartHandler(item.productId, e.target.value) }>
                                                     {[...Array(item.countInStock).keys()].map(x => {
                                                         return <option key={x+1} value={x+1}>{x+1}</option>
                                                     })}
@@ -64,7 +64,7 @@ const CartScreen = (props) => {
                                             </div>
                                             <div>${item.price}</div>
                                             <div>
-                                                <button onClick={() => removeFromCartHandler(item.product)}>Delete</button>
+                                                <button onClick={() => removeFromCartHandler(item.productId)}>Delete</button>
                                             </div>
                                         </div>
                                     </li>

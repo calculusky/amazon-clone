@@ -94,7 +94,7 @@ const ProductScreen = (props) => {
                                             </div>
                                         </li>
                                         <li>
-                                            <button className="primary block" onClick={() => addToCartHandler()}>Add to Cart</button>
+                                            <button className="primary block" onClick={() => addToCartHandler}>Add to Cart</button>
                                         </li>
                                    </div>
                                 )

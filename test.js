@@ -2,15 +2,15 @@ const cartItems = [
                     {
                         "name":"Slim Shirt",
                         "image":"/images/p1.jpg",
-                        "price":60,
+                        "price":20,
                         "product":"1",
-                        "qty":8
+                        "qty":3
                     },
 
                     {
                         "name":"Fit Shirt",
                         "image":"/images/p1.jpg",
-                        "price":50,
+                        "price":45,
                         "product":"2",
                         "qty":1
                     },
@@ -25,14 +25,11 @@ const cartItems = [
                 ]
 
 
-const red = [ cartItems.reduce((acc, val) => acc + val.qty, 0) ].concat([4, 7]).slice()
-//console.log(red)
+const red = [ cartItems.reduce((acc, val) => acc + val.qty, 0) ].concat([4, 2])
+console.log(red)
 
-//const obj = { name: 'edu', age: 32};
-const obj = {};
-//const test = Object.entries(obj).length
-const test = Object.keys(obj)
-console.log(test, 'tet')
+const tot = cartItems.reduce((acc, val) => acc + (val.qty * val.price), 0)
+console.log(tot)
 
 
 
