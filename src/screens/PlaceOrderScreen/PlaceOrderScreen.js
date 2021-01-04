@@ -59,13 +59,13 @@ const PlaceOrderScreen = (props) => {
                                 <ul>
                                     {
                                         cartItems.map(item => (
-                                            <li key={item.product}>
+                                            <li key={item.productId}>
                                                 <div className="row">
                                                     <div>
                                                         <img className="small" src={item.image} alt={item.name}/>
                                                     </div>
                                                     <div>
-                                                        <Link to={`/products/${item.product}`}>{item.name}</Link>
+                                                        <Link to={`/products/${item.productId}`}>{item.name}</Link>
                                                     </div>
                                                     <div>
                                                         <p>{item.qty} x ${item.price} = ${item.qty * item.price}</p>
