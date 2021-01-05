@@ -13,7 +13,7 @@ const orderSchema = new Schema({
         fullname: { type: String, required: true },
         address: { type: String, required: true },
         city: { type: String, required: true },
-        postalCode: { type: Number, required: true },
+        postalCode: { type: String, required: true },
         country: { type: String, required: true }
     },
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },

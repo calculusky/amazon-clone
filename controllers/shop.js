@@ -66,7 +66,7 @@ exports.order = async (req, res, next) => {
             userId
         });
         const savedOrder = await order.save();
-        return res.json({ message: 'Order successfully created', data: savedOrder, status: 201 });
+        return res.json({ message: 'Order successfully created', order: savedOrder, status: 201 });
 
     } catch (error) {
         next(error);
