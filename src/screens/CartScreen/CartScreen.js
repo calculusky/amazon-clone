@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { addToCartAction, removeFromCartAction } from '../../store/actions/cartAction';
 import MessageBox from "../../components/MessageBox/MessageBox";
 import { Link } from "react-router-dom";
-//import { useDispatch, useSelector } from "react-redux";
 
 const CartScreen = (props) => {
     //  const productId = props.match.params.id;
@@ -13,21 +12,14 @@ const CartScreen = (props) => {
 
     console.log(cartItems, 'cartitems------')
 
-    // useEffect(() => {
-    //     //dispatch(addToCartAction(productId, qty))
-    //     onAddToCart(productId, qty);        
-    // }, [onAddToCart, productId, qty]) //disp--------
-
     //add to cart
     const addToCartHandler = (productId, qty) => {
           onAddToCart(productId, parseInt(qty))
-        //dispatch(addToCartAction(productId, parseInt(qty)))
     }
 
     //remove from cart
     const removeFromCartHandler = (productId) => {
           onRemoveFromCart(productId);
-        //dispatch(removeFromCartAction(productId))      
     }
 
     //redirect to signin

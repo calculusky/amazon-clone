@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import CheckoutSteps from '../../components/CheckoutSteps/CheckoutSteps';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { createOrderAction } from '../../store/actions/orderAction';
+import { ORDER_CREATE_RESET } from '../../store/constants/constants';
+import LoadingBox from '../../components/LoadingBox/LoadingBox';
+import MessageBox from '../../components/MessageBox/MessageBox';
 
 const PlaceOrderScreen = (props) => {
+    //get create order state from redux store
+    const { loading, order, success, error } = props.createOrder;
 
+    //modify the cart state for sending order
     const toPrice = (num) => parseFloat(num.toFixed(2));
-
     props.cart.itemsPrice = toPrice(props.cart.cartItems.reduce((acc, val) => acc + (val.qty * val.price), 0));
     props.cart.shippingPrice = props.cart.itemsPrice > 100 ? toPrice(0) : toPrice(10);
     props.cart.taxPrice = toPrice(0.08 * props.cart.itemsPrice);
-    props.cart.totalPrice = toPrice(props.cart.itemsPrice + props.cart.shippingPrice + props.cart.taxPrice);
-    
+    props.cart.totalPrice = toPrice(props.cart.itemsPrice + props.cart.shippingPrice + props.cart.taxPrice); 
     const { 
         cartItems, 
         shippingInfo, 
@@ -22,8 +27,18 @@ const PlaceOrderScreen = (props) => {
         totalPrice
      } = props.cart;
 
-     const placeOrderHandler = () => {
+     //reset createOrder state
+     const { onResetOrder, history } = props;
+     useEffect(() => {
+         if(success){
+             onResetOrder();
+             history.push(`/order/${order._id}`)
+         }
+     }, [onResetOrder, history, success, order])
 
+     //place order handler fxn
+     const placeOrderHandler = () => {
+         props.onCreateOrder({ ...props.cart, orderItems: props.cart.cartItems })
      }
     
 
@@ -109,7 +124,13 @@ const PlaceOrderScreen = (props) => {
                             </li>
                             <li>
                                 <div className="row">
-                                    <button disabled={cartItems.length === 0} className="primary block" onClick={placeOrderHandler}>Place Order</button>
+                                    <button 
+                                       disabled={cartItems.length === 0} 
+                                       className={`primary block ${(loading || cartItems.length === 0) && 'no-drop'}`} 
+                                       onClick={placeOrderHandler}>
+                                       { loading ? <LoadingBox value={'Place Order'}/> : 'Place Order' }
+                                    </button>
+                                    { error && <MessageBox variant='danger'>{error}</MessageBox> }
                                 </div>
                             </li>
                         </ul>
@@ -122,11 +143,18 @@ const PlaceOrderScreen = (props) => {
  
 const mapStateToProps = state => {
     return {
-        cart: state.cartReducer
+        cart: state.cartReducer,
+        createOrder: state.createOrderReducer
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onCreateOrder: (order) => dispatch(createOrderAction(order)),
+        onResetOrder: () => dispatch({ type: ORDER_CREATE_RESET})
     }
 }
 
-export default connect(mapStateToProps)(PlaceOrderScreen);
+export default connect(mapStateToProps, mapDispatchToProps)(PlaceOrderScreen);
 
 
 

@@ -151,6 +151,9 @@ img.medium {
 img.large {
   width: 100%;
 }
+.no-drop {
+  cursor: no-drop;
+}
 
 /* card */
 .card {

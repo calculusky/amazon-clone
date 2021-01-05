@@ -95,3 +95,35 @@
 [1223/155213.841:ERROR:crash_report_database_win.cc(455)] unexpected header
 [1223/160713.844:ERROR:crash_report_database_win.cc(455)] unexpected header
 [1223/162213.845:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/093423.540:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/094423.553:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/094423.585:ERROR:filesystem_win.cc(129)] GetFileAttributes C:\Users\NPFABIS-LAG36\AppData\Local\Google\Chrome\User Data\Crashpad\attachments\327071d8-50ca-4aa1-8b0f-26c71a014bcf: The system cannot find the path specified. (0x3)
+[0104/094423.586:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0104/094423.587:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/094423.588:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/094923.595:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/100423.597:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/101923.599:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/103423.601:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/123338.884:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/124838.886:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/130338.887:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/131838.889:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/133338.891:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/134838.892:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/140338.894:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/141838.897:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/143338.899:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/144838.901:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/150338.901:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/151838.971:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/153338.984:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/154838.987:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/160338.989:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/161839.020:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/163339.180:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/164839.183:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/170339.217:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0104/171839.219:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0105/091721.718:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0105/111634.716:ERROR:crash_report_database_win.cc(455)] unexpected header

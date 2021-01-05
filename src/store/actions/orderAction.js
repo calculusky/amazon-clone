@@ -10,15 +10,20 @@ export const createOrderAction = (order) => async (dispatch, getState) => {
     });
     try {
         const { data } = await Axios.post(`${proxyServer}/api/order`, order, {
-            headers: `Bearer ${userInfo.token}`
+            headers: { 
+                authorization: `Bearer ${userInfo.token}`}
         })
         dispatch({
             type: actionTypes.ORDER_CREATE_SUCCESS,
-            payload: data
+            payload: data.order
+        });
+        dispatch({
+            type: actionTypes.CART_EMPTY
         })
         localStorage.removeItem('cartItems');
 
     } catch (error) {
+        console.log(error, 'err')
         dispatch({
             type: actionTypes.ORDER_CREATE_FAILURE,
             payload: (error.response && error.response.data.message) ? error.response.data.message : error.message

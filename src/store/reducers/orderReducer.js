@@ -10,6 +10,7 @@ export const createOrderReducer = (state = {}, action) => {
         case actionTypes.ORDER_CREATE_SUCCESS:
             return {
                 loading: false,
+                success: true,
                 order: action.payload
             }
         case actionTypes.ORDER_CREATE_FAILURE:
