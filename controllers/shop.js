@@ -73,6 +73,23 @@ exports.order = async (req, res, next) => {
     }
 }
 
+exports.orderDetails = async (req, res, next) => {
+    const orderId = req.params.orderId;
+    try {
+       const order = await Order.findById(orderId);
+       if(!order){
+           throwError({
+               message: 'Order not found',
+               status: 404
+           })
+       }
+       res.json({ success: true, order: order })
+        
+    } catch (error) {
+        next(error)
+    }
+}
+
 
 
 

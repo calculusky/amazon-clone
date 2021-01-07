@@ -25,9 +25,9 @@ exports.isAuth = async (req, res, next) => {
         return next();
 
     } catch (error) {
-        if(error.message === 'jwt expired' || error.message === 'invalid token'){
-            error.message = 'Authentication failed';
-        }
+        // if(error.message === 'jwt expired' || error.message === 'invalid token'){
+        //     error.message = 'Authentication failed';
+        // }
         next(error);
     }
 }

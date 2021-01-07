@@ -1,5 +1,6 @@
 const bcrypt = require("bcryptjs");
-const data = require("../data");
+const { payPalClientId } = require("../config");
+//const data = require("../data");
 const User = require("../models/user");
 const { throwError, generateToken } = require("../utilities/helper");
 
@@ -59,6 +60,11 @@ exports.signup = async (req, res, next) => {
 
 
 
+
+//send paypal client id to the frontend
+exports.getPayPalClientId = (req, res, next) => {
+    res.send(payPalClientId);
+}
 
 
 
