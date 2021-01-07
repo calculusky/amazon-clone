@@ -127,3 +127,37 @@
 [0104/171839.219:ERROR:crash_report_database_win.cc(455)] unexpected header
 [0105/091721.718:ERROR:crash_report_database_win.cc(455)] unexpected header
 [0105/111634.716:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/083756.353:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/084756.350:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/084756.351:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0106/084756.355:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/084756.356:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/091911.781:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/093411.783:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/094911.855:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/102028.802:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/103528.803:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/105032.456:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/110532.459:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/112032.461:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/113532.464:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/115032.464:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/121238.128:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/122738.217:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/124238.218:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/125738.220:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/131238.220:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/132738.221:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/134238.221:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/135738.222:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/141238.223:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/142738.223:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/144238.226:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/145738.227:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/151324.269:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/152824.270:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0106/165512.478:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0106/165512.478:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0106/165513.199:ERROR:exception_snapshot_win.cc(99)] thread ID 16984 not found in process
+[0106/165513.199:ERROR:exception_snapshot_win.cc(99)] thread ID 19644 not found in process
+[0107/090634.099:ERROR:crash_report_database_win.cc(455)] unexpected header

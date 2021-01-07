@@ -32,7 +32,7 @@ const PlaceOrderScreen = (props) => {
      useEffect(() => {
          if(success){
              onResetOrder();
-             history.push(`/order/${order._id}`)
+             history.push(`/orders/${order._id}`)
          }
      }, [onResetOrder, history, success, order])
 
@@ -42,7 +42,7 @@ const PlaceOrderScreen = (props) => {
      }
     
 
-    console.log(props, 'props')
+    console.log(props, 'props-placeorderscreen')
     return ( 
         <div>
             <CheckoutSteps step1 step2 step3 step4/>
