@@ -161,3 +161,34 @@
 [0106/165513.199:ERROR:exception_snapshot_win.cc(99)] thread ID 16984 not found in process
 [0106/165513.199:ERROR:exception_snapshot_win.cc(99)] thread ID 19644 not found in process
 [0107/090634.099:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/094535.370:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/095535.438:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/095535.450:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[0108/095535.454:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/095535.454:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/100035.434:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/101535.435:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/103035.437:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/104535.489:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/110035.492:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/111535.494:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/111646.489:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/113035.501:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/113832.533:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/114535.502:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/120035.521:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/121535.522:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/123035.525:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/124535.528:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/124837.099:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/130035.530:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/131535.589:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/133035.590:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/134535.590:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/140035.594:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/141535.596:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/143035.598:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/144535.599:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/150035.626:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/151535.628:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0108/153035.631:ERROR:crash_report_database_win.cc(455)] unexpected header

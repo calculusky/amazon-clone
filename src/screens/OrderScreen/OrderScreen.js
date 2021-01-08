@@ -1,24 +1,40 @@
-import React, { useEffect } from 'react';
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import { PayPalButton } from 'react-paypal-button-v2';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import LoadingBox from '../../components/LoadingBox/LoadingBox';
 import MessageBox from '../../components/MessageBox/MessageBox';
+import { proxyServer } from '../../config';
 import { orderDetailsAction } from '../../store/actions/orderAction';
 
 const OrderScreen = (props) => {
+    const [ sdkReady, setSdkReady ] = useState(false);
     const orderId = props.match.params.orderId;
     const { onOrderDetails } = props
     const { loading, error, order } = props.orderDetails;
      
      useEffect(() => {
+         //add a function to create paypal script
+         const addPayPalScript = async () => {
+             const { data } = await Axios.get(`${proxyServer}/api/config/paypal`); //fetch the cliend ID
+             const script = document.createElement('script');
+             script.type = 'text/javascript';
+             script.src = `https://www.paypal.com/sdk/js?client-id=${data}`;
+             script.async = true;
+             script.onload = () => {
+                 setSdkReady(true);
+             }
+             document.body.appendChild(script);
+         }
+             onOrderDetails(orderId);
+        
+         addPayPalScript();
          
-
-
-         onOrderDetails(orderId);
      }, [onOrderDetails, orderId])
 
 
-    console.log(props, 'props-OrderScreen')
+    //console.log(props, 'props-OrderScreen')
 
     //display 
     return ( 
@@ -114,6 +130,11 @@ const OrderScreen = (props) => {
                                         <div><strong>Order Total</strong></div>
                                     <div><strong>${order.totalPrice.toFixed(2)}</strong></div>
                                     </div>
+                                </li>
+                                <li>
+                                    <PayPalButton/>
+
+                                   
                                 </li>
                             </ul>
                         </div>

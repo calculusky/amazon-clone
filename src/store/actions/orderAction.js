@@ -23,7 +23,7 @@ export const createOrderAction = (order) => async (dispatch, getState) => {
         localStorage.removeItem('cartItems');
 
     } catch (error) {
-        console.log(error, 'err')
+        //console.log(error, 'err')
         dispatch({
             type: actionTypes.ORDER_CREATE_FAILURE,
             payload: (error.response && error.response.data.message) ? error.response.data.message : error.message
@@ -43,7 +43,7 @@ export const orderDetailsAction = (orderId) => async (dispatch, getState) => {
                 Authorization: `Bearer ${userInfo.token}`
             }
         });
-        console.log(order, '---order----')
+        //console.log(order, '---order----')
         dispatch({
             type: actionTypes.ORDER_DETAILS_SUCCESS,
             payload: order
