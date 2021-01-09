@@ -24,6 +24,17 @@ const cartItems = [
                     }
                 ]
 
+                if(order){
+                    if(!order.isPaid){
+                        if(!window.paypal){
+                            console.log('runnnnn win')
+                            addPayPalScript();
+                    }else{
+                        setSdkReady(true)
+                    }
+                  }
+                }
+
 
 const red = [ cartItems.reduce((acc, val) => acc + val.qty, 0) ].concat([4, 2])
 console.log(red)
