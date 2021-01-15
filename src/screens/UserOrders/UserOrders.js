@@ -38,10 +38,10 @@ const UserOrders = (props) => {
                                         userOrders.map(order => (
                                             <tr key={order._id}>
                                                 <td>{order._id}</td>
-                                                <td>{order.updatedAt}</td>
+                                                <td>{order.updatedAt.substring(0, 10)}</td>
                                                 <td>{order.totalPrice}</td>
-                                                <td>{ order.isPaid ? order.paidAt : 'No' }</td>
-                                                <td>{ order.isDelivered ? order.deliveredAt : 'No'}</td>
+                                                <td>{ order.isPaid ? order.paidAt.substring(0, 10) : 'No' }</td>
+                                                <td>{ order.isDelivered ? order.deliveredAt.substring(0, 10) : 'No'}</td>
                                                 <td>
                                                     <button className='small' onClick={() => props.history.push(`/orders/${order._id}`)}>
                                                         Details
