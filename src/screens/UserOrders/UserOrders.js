@@ -13,7 +13,7 @@ const UserOrders = (props) => {
 
     useEffect(() => {
         onListUserOrders();
-    }, [])
+    }, [onListUserOrders])
 
     return ( 
             <div>
