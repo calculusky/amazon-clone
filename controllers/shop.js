@@ -90,8 +90,49 @@ exports.orderDetails = async (req, res, next) => {
     }
 }
 
+exports.payOrder = async (req, res, next) => {
+    const orderId = req.params.orderId;
+    const { id, status, payer: { email_address }, update_time } = req.body;
+   try {
+    const order = await Order.findById(orderId);
+    if(!order){
+        throwError({
+            message: 'Order not found',
+            status: 404
+        })
+    }
+    order.isPaid = true;
+    order.paidAt = Date.now();
+    order.paymentResult = {
+        id,
+        status,
+        email_address,
+        update_time
+    }
+    const updatedOrder = await order.save();
+    res.json({ message: 'payment successful', order: updatedOrder });
 
+   } catch (error) {
+       next(error);
+   }
+}
 
+//user orders
+exports.userOrders = async (req, res, next) => {
+    try {
+        const orders = await Order.find({ userId: req.user._id });
+        if(!orders){
+            throwError({
+                message: 'No order found',
+                status: 404
+            })
+        }
+        res.json({ success: true, orders: orders});
+
+    } catch (error) {
+        next(error);
+    }
+}
 
 
 

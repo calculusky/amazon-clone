@@ -18,6 +18,12 @@ const orderSchema = new Schema({
     },
     userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
     paymentMethod: { type: String, required: true },
+    paymentResult: {
+        id: String,
+        status: String,
+        email_address: String,
+        update_time: String
+    },
     itemsPrice: { type: Number, required: true },
     shippingPrice: { type: Number, required: true },
     taxPrice: { type: Number, required: true },
