@@ -6,15 +6,23 @@ import { Link } from 'react-router-dom';
 import LoadingBox from '../../components/LoadingBox/LoadingBox';
 import MessageBox from '../../components/MessageBox/MessageBox';
 import { proxyServer } from '../../config';
-import { orderDetailsAction } from '../../store/actions/orderAction';
+import { orderDetailsAction, orderPayAction } from '../../store/actions/orderAction';
+import * as actionTypes from '../../store/constants/constants';
 
 const OrderScreen = (props) => {
     const [ sdkReady, setSdkReady ] = useState(false);
     const orderId = props.match.params.orderId;
-    const { onOrderDetails } = props
+    const { onOrderDetails, onOrderPayReset } = props;
+
+    //states
     const { loading, error, order } = props.orderDetails;
-     
+    const { loading: loadingPay, success: successPay, error: errorPay } = props.orderPay;
+
+
+     console.log(props, '-----props--order--pay-----')
+     console.log(errorPay, loadingPay, successPay, '*******TTT*****')
      useEffect(() => {
+         //console.log('eeeefffeeeecccccttttttttt-------')
          //add a function to create paypal script
          const addPayPalScript = async () => {
              const { data } = await Axios.get(`${proxyServer}/api/config/paypal`); //fetch the cliend ID
@@ -27,14 +35,23 @@ const OrderScreen = (props) => {
              }
              document.body.appendChild(script);
          }
-             onOrderDetails(orderId);
-        
-         addPayPalScript();
-         
-     }, [onOrderDetails, orderId])
+         if(!order || successPay){
+              onOrderPayReset();     //reset orderPay state by unsetting successpay to avoid infinite re-render loops
+              return onOrderDetails(orderId);
+         }
+        if(order && !order.isPaid){
+            if(!window.paypal){
+                addPayPalScript();
+            }           
+        }                 
+     }, [onOrderDetails, onOrderPayReset, orderId, order, successPay])
 
-
-    //console.log(props, 'props-OrderScreen')
+     //add payment handler
+    const successPaymentHandler = (paymentResult) => {
+        props.onOrderPay(orderId, paymentResult);
+        console.log(paymentResult, 'payResult')
+    }
+    //      4032 0331 6482 35564032 0331 6482 3556    0224   202
 
     //display 
     return ( 
@@ -131,11 +148,13 @@ const OrderScreen = (props) => {
                                     <div><strong>${order.totalPrice.toFixed(2)}</strong></div>
                                     </div>
                                 </li>
-                                <li>
-                                    <PayPalButton/>
-
-                                   
-                                </li>
+                                {
+                                    ((order && !order.isPaid) && (
+                                        <li>
+                                            { !sdkReady ? <LoadingBox/> : <PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler}/> }                                  
+                                        </li>
+                                    ))
+                                }
                             </ul>
                         </div>
                     </div>
@@ -148,11 +167,14 @@ const OrderScreen = (props) => {
 const mapStateToProps = state => {
     return {
         orderDetails: state.orderDetailsReducer,
+        orderPay: state.orderPayReducer
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        onOrderDetails: (orderId) => dispatch(orderDetailsAction(orderId))
+        onOrderDetails: (orderId) => dispatch(orderDetailsAction(orderId)),
+        onOrderPay: (orderId, paymentResult) => dispatch(orderPayAction(orderId, paymentResult)),
+        onOrderPayReset: () => dispatch({ type: actionTypes.ORDER_PAY_RESET })
     }
 }
 
