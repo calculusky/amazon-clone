@@ -91,6 +91,9 @@ button.primary {
 button.block {
   width: 100%;
 }
+button.small {
+  font-size: 1.2rem;
+}
 
 
 /* header */
@@ -198,6 +201,10 @@ img.large {
   color: #2020a0;
   background-color: #e0e0ff;
 }
+.alert-success {
+  color: #20a020;
+  background-color: #eeffe0;
+}
 .alert-danger {
   color: #a02020;
   background: #ffe0e0;
@@ -249,4 +256,21 @@ img.large {
 .checkout-steps > div.active {
   border-top-color: #f08000 ;
   color: #f08000;
+}
+
+/* table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table tbody tr:nth-of-type(odd) {
+  background-color: #f4f4f4;
+}
+.table th, .table td {
+  text-align: left;
+  border: 0.1rem solid #e4e4e4;
+  padding: 0.5rem;
+}
+.table button {
+  margin: 0 0.5rem;
 }

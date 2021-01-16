@@ -11,6 +11,7 @@ import ShippingScreen from './screens/ShippingScreen/ShippingScreen';
 import PaymentMethodScreen from './screens/PaymentMethodScreen/PaymentMethodScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen/OrderScreen';
+import UserOrders from './screens/UserOrders/UserOrders';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
@@ -38,6 +39,7 @@ function App() {
                          <div className="dropdown">
                             <Link to="#">{ userInfo.name } <i className="fa fa-caret-down"></i></Link>
                             <ul className="dropdown-content">
+                               <Link to="/myorders">Order History</Link>
                                <Link to="#" onClick={signOutHandler}><i className="fa fa-sign-out"></i> sign out</Link>
                             </ul>
                          </div>
@@ -58,6 +60,7 @@ function App() {
               <Route path='/payment' component={PaymentMethodScreen}/>
               <Route path='/placeorder' component={PlaceOrderScreen}/>
               <Route path='/orders/:orderId' component={OrderScreen}/>
+              <Route path='/myorders' component={UserOrders}/>
             </main>
             <footer className="row center">
                 All right reserved

@@ -56,3 +56,52 @@ export const orderDetailsAction = (orderId) => async (dispatch, getState) => {
         })
     }
 }
+
+//pay order
+export const orderPayAction = (orderId, paymentResult) => async (dispatch, getState) => {
+    const { userInfo } = getState().signInReducer;
+    dispatch({
+        type: actionTypes.ORDER_DETAILS_REQUEST,
+        payload: { orderId, paymentResult }
+    });
+    try {
+        const { data } = await Axios.put(`${proxyServer}/api/orders/${orderId}/pay`, paymentResult, {
+            headers: {
+                'Authorization': `Bearer ${userInfo.token}`
+            }
+        })
+        dispatch({
+            type: actionTypes.ORDER_PAY_SUCCESS,
+            payload: data.order
+        });
+
+    } catch (error) {
+        dispatch({
+            type: actionTypes.ORDER_PAY_FAIL,
+            payload: (error.response && error.response.data.message) ? error.response.data.message : error.message
+        })
+    }
+}
+
+//list user orders
+export const listUserOrdersAction = () => async (dispatch, getState) => {
+    const { userInfo } = getState().signInReducer;
+    dispatch({ type: actionTypes.LIST_USER_ORDERS_REQUEST });
+    try {
+        const { data } = await Axios.get(`${proxyServer}/api/userorders`, {
+            headers: {
+                Authorization: `Bearer ${userInfo.token}`
+            }
+        });
+        dispatch({
+            type: actionTypes.LIST_USER_ORDERS_SUCCESS,
+            payload: data.orders
+        })
+
+    } catch (error) {
+        dispatch({
+            type: actionTypes.LIST_USER_ORDERS_FAIL,
+            payload: (error.response && error.response.data.message) ? error.response.data.message : error.message
+        })
+    }
+}
