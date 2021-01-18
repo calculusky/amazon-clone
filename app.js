@@ -6,6 +6,7 @@ const app = express();
 //import routes
 const shopRoutes = require('./routes/shop');
 const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 
 //register middlewares
 app.use(cors());
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 //render to frontend
 app.use('/api', shopRoutes);
 app.use('/api', authRoutes);
+app.use('/api', userRoutes);
 
 //handle errors
 app.use((error, req, res, next) => {

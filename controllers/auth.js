@@ -17,6 +17,7 @@ exports.signin = async (req, res, next) => {
             throwError({ message: 'Incorrect email or password', status: 401})
         }
         const data = {
+            _id: user._id,
             name: user.name,
             email: user.email,
             isAdmin: user.isAdmin,
