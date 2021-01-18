@@ -56,3 +56,4 @@ export const signupReducer = ( state = { userInfo: null }, action) => {
             return state
     }
 }
+

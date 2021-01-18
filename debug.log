@@ -257,3 +257,14 @@
 [0115/154123.548:ERROR:crash_report_database_win.cc(455)] unexpected header
 [0115/160145.753:ERROR:crash_report_database_win.cc(455)] unexpected header
 [0115/163832.511:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0115/165332.572:ERROR:crash_report_database_win.cc(455)] unexpected header
+[0115/170436.521:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0115/170436.521:ERROR:process_reader_win.cc(123)] NtOpenThread: {Access Denied} A process has requested access to an object, but has not been granted those access rights. (0xc0000022)
+[0115/170435.795:ERROR:scoped_process_suspend.cc(31)] NtSuspendProcess: An attempt was made to access an exiting process. (0xc000010a)
+[0115/170435.795:ERROR:scoped_process_suspend.cc(31)] NtSuspendProcess: An attempt was made to access an exiting process. (0xc000010a)
+[0115/170436.966:ERROR:exception_snapshot_win.cc(99)] thread ID 1020 not found in process
+[0115/170436.966:ERROR:exception_snapshot_win.cc(99)] thread ID 9988 not found in process
+[0115/170436.966:ERROR:process_info.cc(118)] ReadProcessMemory bool __cdecl crashpad::(anonymous namespace)::ReadStruct(HANDLE, crashpad::WinVMAddress, T *) [T = crashpad::process_types::PEB<crashpad::process_types::internal::Traits64>]: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0115/170436.966:ERROR:process_info.cc(551)] ReadProcessData failed
+[0115/170436.966:ERROR:process_info.cc(118)] ReadProcessMemory bool __cdecl crashpad::(anonymous namespace)::ReadStruct(HANDLE, crashpad::WinVMAddress, T *) [T = crashpad::process_types::PEB<crashpad::process_types::internal::Traits64>]: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[0115/170436.967:ERROR:process_info.cc(551)] ReadProcessData failed
