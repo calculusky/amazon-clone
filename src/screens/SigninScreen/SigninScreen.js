@@ -12,9 +12,8 @@ const SigninScreen = (props) => {
     //
     const redirect = props.location.search ? props.location.search.split('=')[1] : '/';
     const { userInfo, error, loading } = props.user;
-    console.log(props.user, 'state-signin')
-
-//renders comp b4 redirecting***bug
+   
+    //renders comp b4 redirecting***bug
     useEffect(() => {
         if(userInfo){
             props.history.push(redirect)

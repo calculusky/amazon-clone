@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LoadingBox from '../../components/LoadingBox/LoadingBox';
 import MessageBox from '../../components/MessageBox/MessageBox';
 import { userDetailsAction } from '../../store/actions/authAction';
+import { updateUserProfileAction } from '../../store/actions/userAction';
 
 const EditProfileScreen = (props) => {
     const [name, setName] = useState('');
@@ -10,22 +11,43 @@ const EditProfileScreen = (props) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    //get user details and signedin user states from redux store
+    //get states: userDetails, userSignin, updateUserProfile from redux store through props
     const {
          userDetails: { loading, error, user },
-         userSignin: { userInfo } 
+         userSignin: { userInfo },
+         updateUserProfile: { loading: loadingUpdate, user: updatedUser, error: errorUpdate} 
         } = props;
     
-    //get function to dispatch user details from props
-    const { onUserDetails } = props;
+    //get functions to dispatch user details & update user from props
+    const { onUserDetails, onUpdateUserProfile } = props;
 
-    //get user details from the server
+    //get user details from the server and initialize form values
     useEffect(() => {
-        onUserDetails(userInfo._id)
-    }, [onUserDetails, userInfo._id])
+        if(!user){
+            return onUserDetails(userInfo._id)
+        }
+        setName(user.name);
+        setEmail(user.email);
+    }, [onUserDetails, userInfo._id, user])
+
+    //submit form
+    const submitHandler = (e) => {
+        e.preventDefault();
+        if(password !== confirmPassword){
+            return alert('Password do not match')
+        }
+        //dispatch the update action
+        onUpdateUserProfile({ 
+            userId: user._id, 
+            name: name, 
+            email: email, 
+            password: password 
+        })
+    }
+
     return (  
         <div>
-            <form className='form'>
+            <form className="form" onSubmit={submitHandler}>
                 <div>
                     <h1>Edit Profile</h1>
                 </div>
@@ -36,13 +58,17 @@ const EditProfileScreen = (props) => {
                         <MessageBox variant={'danger'}>{error}</MessageBox>
                     ): (
                         <>
+                            { loadingUpdate && <LoadingBox/> }
+                            { errorUpdate && <MessageBox variant={'danger'}>{errorUpdate}</MessageBox> }
+                            { updatedUser && <MessageBox variant={'success'}>Profile successfully updated</MessageBox> }
+                            
                             <div>
                                 <label htmlFor="name">Name</label>
                                 <input 
                                    type="text" 
                                    id="name" 
                                    placeholder="name"
-                                   value={user.name}
+                                   value={name}
                                    onChange={(e) => setName(e.target.value)}/>
                             </div>
                             <div>
@@ -51,7 +77,7 @@ const EditProfileScreen = (props) => {
                                    type="email" 
                                    id="email" 
                                    placeholder="email address" 
-                                   value={user.email}
+                                   value={email}
                                    onChange={(e) => setEmail(e.target.value)}/>
                             </div>
                             <div>
@@ -76,8 +102,7 @@ const EditProfileScreen = (props) => {
                             </div>
                         </>
                     )
-                }
-                
+                }                
             </form>
         </div>
     );
@@ -86,12 +111,14 @@ const EditProfileScreen = (props) => {
 const mapstateToProps = (state) => {
     return {
         userDetails: state.userDetailsReducer,
-        userSignin: state.signInReducer
+        userSignin: state.signInReducer,
+        updateUserProfile: state.updateUserProfileReducer
     }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        onUserDetails: (userId) => dispatch(userDetailsAction(userId))
+        onUserDetails: (userId) => dispatch(userDetailsAction(userId)),
+        onUpdateUserProfile: (user) => dispatch(updateUserProfileAction(user))
     }
 }
  

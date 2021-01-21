@@ -13,6 +13,7 @@ import PlaceOrderScreen from './screens/PlaceOrderScreen/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen/OrderScreen';
 import UserOrders from './screens/UserOrders/UserOrders';
 import EditProfileScreen from './screens/EditProfileScreen/EditProfileScreen';
+import ProtectedRoute from './Routes/ProtectedRoute';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
@@ -69,7 +70,7 @@ function App() {
               <Route path='/placeorder' component={PlaceOrderScreen}/>
               <Route path='/orders/:orderId' component={OrderScreen}/>
               <Route path='/myorders' component={UserOrders}/>
-              <Route path='/editprofile' component={EditProfileScreen}/>
+              <ProtectedRoute test='test' path='/editprofile' component={EditProfileScreen}/>
             </main>
             <footer className="row center">
                 All right reserved

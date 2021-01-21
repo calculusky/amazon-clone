@@ -24,23 +24,35 @@ const cartItems = [
                     }
                 ]
 
-                if(order){
-                    if(!order.isPaid){
-                        if(!window.paypal){
-                            console.log('runnnnn win')
-                            addPayPalScript();
-                    }else{
-                        setSdkReady(true)
-                    }
-                  }
-                }
+                // if(order){
+                //     if(!order.isPaid){
+                //         if(!window.paypal){
+                //             console.log('runnnnn win')
+                //             addPayPalScript();
+                //     }else{
+                //         setSdkReady(true)
+                //     }
+                //   }
+                // }
 
 
 const red = [ cartItems.reduce((acc, val) => acc + val.qty, 0) ].concat([4, 2])
-console.log(red)
+//console.log(red)
 
 const tot = cartItems.reduce((acc, val) => acc + (val.qty * val.price), 0)
-console.log(tot)
+//console.log(tot)
+
+const person = {
+    name: 'nedu',
+    age: 34,
+    nicknames: ['calculus', 'ochendo']
+}
+const myfunc = ({name: stuff, ...rest }) => {
+    console.log(rest)
+}
+
+myfunc(person)
+
 
 
 
