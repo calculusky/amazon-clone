@@ -1,6 +1,6 @@
 const bcrypt = require("bcryptjs");
-const { payPalClientId } = require("../config");
-//const data = require("../data");
+const { payPalClientId, jwtSecret } = require("../config");
+const jwt = require('jsonwebtoken');
 const User = require("../models/user");
 const { throwError, generateToken } = require("../utilities/helper");
 
@@ -57,6 +57,26 @@ exports.signup = async (req, res, next) => {
     }
 }
 
+//check validity of token
+exports.isTokenValid = async (req, res, next) => {
+    const authHeader = req.headers['authorization'];
+    if(!authHeader){
+        throwError({
+            message: 'Authentication failed',
+            status: 401
+        })
+    }
+    const token = authHeader.split(' ')[1];
+    try {
+        const decodedUser = await jwt.verify(token, jwtSecret);
+        if(decodedUser){
+            res.json({ message: 'valid token', success: true })
+        }
+
+    } catch (error) {
+        next(error)
+    }
+}
 
 
 

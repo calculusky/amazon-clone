@@ -9,7 +9,7 @@ exports.generateToken = (user) => {
         isAdmin: user.isAdmin,
         email: user.email
     }
-    const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '12h'});
+    const token = jwt.sign(payload, config.jwtSecret, { expiresIn: '2m'});
     return token;
 }
 
