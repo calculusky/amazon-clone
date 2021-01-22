@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 import { Redirect, Route } from 'react-router-dom';
 
 const ProtectedRoute = ({ component: Component, ...rest }) => {
-    console.log(rest , '----rest----')
     //get user info state from redux
     const { userInfo } = useSelector(state => state.signInReducer);
     return ( 

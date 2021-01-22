@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { BrowserRouter, Link, Route } from 'react-router-dom'
 import CartScreen from './screens/CartScreen/CartScreen';
@@ -14,6 +14,8 @@ import OrderScreen from './screens/OrderScreen/OrderScreen';
 import UserOrders from './screens/UserOrders/UserOrders';
 import EditProfileScreen from './screens/EditProfileScreen/EditProfileScreen';
 import ProtectedRoute from './Routes/ProtectedRoute';
+import Axios from 'axios';
+import { proxyServer } from './config';
 
 function App() {
   const cartItems = useSelector(state => state.cartReducer.cartItems);
@@ -23,9 +25,33 @@ function App() {
   const { userInfo }  = user;
   //console.log(userInfo, 'user login info')
 
+  //sign out user automatically if session expires
+  useEffect(() => {
+    const authenticateUser = async () => {
+      try {
+        if(userInfo){
+         const { data } = await Axios.get(`${proxyServer}/api/validatetoken`, {
+           headers: {
+             Authorization: `Bearer ${userInfo.token}`
+           }
+         })
+         if(data){
+           return null;
+         }
+        }
+   
+      } catch (error) {
+        dispatch(signOutActon())
+      }
+    }
+    authenticateUser();
+  }, [dispatch, userInfo]);
+
+
   const signOutHandler = () => {
     dispatch(signOutActon())
   }
+
 
   return (
     <BrowserRouter>
@@ -65,12 +91,12 @@ function App() {
               <Route path='/signin' component={SigninScreen}/>
               <Route path='/signup' component={SignupScreen}/>
               <Route path='/cart' component={CartScreen}/>
-              <Route path='/shipping' component={ShippingScreen}/>
-              <Route path='/payment' component={PaymentMethodScreen}/>
-              <Route path='/placeorder' component={PlaceOrderScreen}/>
-              <Route path='/orders/:orderId' component={OrderScreen}/>
-              <Route path='/myorders' component={UserOrders}/>
-              <ProtectedRoute test='test' path='/editprofile' component={EditProfileScreen}/>
+              <ProtectedRoute path='/shipping' component={ShippingScreen}/>
+              <ProtectedRoute path='/payment' component={PaymentMethodScreen}/>
+              <ProtectedRoute path='/placeorder' component={PlaceOrderScreen}/>
+              <ProtectedRoute path='/orders/:orderId' component={OrderScreen}/>
+              <ProtectedRoute path='/myorders' component={UserOrders}/>
+              <ProtectedRoute path='/editprofile' component={EditProfileScreen}/>
             </main>
             <footer className="row center">
                 All right reserved
